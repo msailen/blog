@@ -39,7 +39,12 @@
 
 .login-card,
 .register-card,
-.contact-us-card {
+.contact-us-card,
+.comment-card {
   background-color: darkslategray;
   color: white;
+}
+
+.card-alternative {
+  color: black;
 }
