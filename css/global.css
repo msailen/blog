@@ -1,12 +1,19 @@
 .row {
   width: 100%;
 }
+.wrapper {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-bottom: 80px;
+}
+
 .header {
   background-color: darkslategray !important;
 }
 
 .footer {
-  height: 50px;
+  height: 60px;
   padding: 1rem;
   width: 100%;
   position: fixed;
@@ -26,6 +33,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.footer-text {
+  font-size: small;
 }
 
 .a-link {

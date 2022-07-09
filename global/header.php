@@ -9,4 +9,4 @@
     </div>
   </div>
 </nav>
-<div class="wrapper m-4">
+<div class="wrapper ml-4 mr-4">

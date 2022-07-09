@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 mt-3 mb-5">
+    <div class="col-12 mt-3">
       <div class="card comment-card">
         <div class="card-body">
           <h5 class="card-title text-center">Comments</h5>
