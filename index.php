@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-3">
       <div class="card">
-        <a href="/blog-detail" class="a-link">
+        <a href="/blog-detail.php" class="a-link">
           <img class="card-img-top" src="images/default.png" alt="Preview">
           <div class="card-body">
             <h5 class="card-title">Apache Hadoop</h5>
