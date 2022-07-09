@@ -1,0 +1,45 @@
+.row {
+  width: 100%;
+}
+
+.container {
+  max-width: none;
+}
+
+.header {
+  background-color: darkslategray !important;
+}
+
+.footer {
+  padding: 1rem;
+  width: 100%;
+  position: fixed;
+  background-color: darkslategray;
+  color: white;
+  bottom: 0px;
+}
+
+.navbar-item {
+  color: white;
+  text-decoration: none;
+}
+
+.centered {
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.a-link {
+  text-decoration: none;
+  color: black;
+}
+
+.login-card,
+.register-card,
+.contact-us-card {
+  background-color: darkslategray;
+  color: white;
+}
