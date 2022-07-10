@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+echo "Here";
+?>
 
 <head>
   <title>Page Not Found</title>
@@ -12,10 +15,10 @@
 
   <div class="row centered">
     <div class="col-12">
-      <div class="card login-card">
-        <div class="card-body">
-          <h5 class="card-title text-center">Oops Page Not Found</h5>
-          <a type="button" href="/" class="btn btn-success mt-2">Go To Home</button>
+      <div class="card">
+        <div class="card-body text-center">
+          <h5>Oops Page Not Found</h5>
+          <a type="button" class="btn btn-success" href="/">Go To Home</a>
         </div>
       </div>
     </div>
