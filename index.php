@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-  <title>Home</title>
-  <?php require_once "global/head.php"; ?>
-
-</head>
-
-<body>
-  <?php require_once "global/header.php"; ?>
-
-  <h6 class="m-3">Recent Blogs</h6>
-  <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-3">
-      <div class="card">
-        <a href="/blog-detail.php" class="a-link">
-          <img class="card-img-top" src="images/default.png" alt="Preview">
-          <div class="card-body">
-            <h5 class="card-title">Apache Hadoop</h5>
-            <p class="card-text">This is Apache Hadoop Content</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <?php require_once "global/footer.php"; ?>
-
-</body>
-
-</html>
+$request = $_SERVER['REQUEST_URI'];
+switch ($request) {
+  case '':
+  case '/':
+    require __DIR__ . '/views/home.php';
+    break;
+  case '/login':
+    require __DIR__ . '/views/login.php';
+    break;
+  case '/register':
+    require __DIR__ . '/views/register.php';
+    break;
+  case '/contact-us':
+    require __DIR__ . '/views/contact-us.php';
+    break;
+  case '/blog-detail':
+    require __DIR__ . '/views/blog-detail.php';
+    break;
+  default:
+    http_response_code(404);
+    require __DIR__ . '/views/404.php';
+    break;
+}
