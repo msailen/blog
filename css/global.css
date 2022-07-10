@@ -55,3 +55,8 @@
 .card-alternative {
   color: black;
 }
+
+.ck-editor__editable[role="textbox"] {
+  /* editing area */
+  min-height: 400px;
+}

@@ -10,8 +10,13 @@
 <body>
   <?php require_once "global/header.php"; ?>
 
-  <h6 class="m-3">Recent Blogs</h6>
   <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h6 class="m-3">Recent Blogs</h6>
+    </div>
+    <div class="col-sm-12 col-md-6 text-end">
+      <a type="button" class="btn btn-success btn-sm" href="/add-blog">Create</a>
+    </div>
     <div class="col-sm-12 col-md-4 col-lg-3">
       <div class="card">
         <a href="/blog-detail" class="a-link">
