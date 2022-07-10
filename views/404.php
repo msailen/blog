@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-echo "Here";
-?>
 
 <head>
   <title>Page Not Found</title>
