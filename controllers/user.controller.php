@@ -30,17 +30,26 @@ class User
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssss", $payload['name'], $payload['email'], $password, $payload['isAdmin']);
     $stmt->execute();
-
     $userId = $conn->insert_id;
-
-    $_SESSION['userId'] = (int) $userId;
-    $_SESSION['name'] = $payload['name'];
-
-    $response['redirect'] = '/';
-
     $stmt->close();
     $conn->close();
-    echo json_encode($response, JSON_PRETTY_PRINT);
-    exit;
+    return $userId;
+  }
+
+  public static function loginUser($email, $password)
+  {
+    $conn = DB::getConnection();
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt = $conn->prepare("SELECT id, name, isAdmin FROM users WHERE email = ? and password = ?");
+    $stmt->bind_param('ss', $email, $password);
+    $stmt->execute();
+    $stmt->bind_result($userId, $name, $isAdmin);
+    while ($stmt->fetch()) {
+
+      $result['userId'] = $userId;
+      $result['name'] = $name;
+      $result['isAdmin'] = $isAdmin;
+      return json_encode($result, JSON_PRETTY_PRINT);
+    }
   }
 }

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
       <div class="card">
         <div class="card-body text-center">
           <h5>Oops Page Not Found</h5>
-          <a type="button" class="btn btn-success" href="/">Go To Home</a>
+          <a type="button" class="btn btn-success" href="/index.php">Go To Home</a>
         </div>
       </div>
     </div>

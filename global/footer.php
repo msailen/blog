@@ -1,5 +1,4 @@
 <!-- Container Div -->
-<script src="/js/index.js"></script>
 </div>
 <div class="footer">
   <p class="footer-text">
