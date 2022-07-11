@@ -7,16 +7,24 @@ class User
   public static function getUserCount()
   {
     $conn = DB::getConnection();
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM users");
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $sql = "SELECT COUNT(*) AS count FROM users";
+    $result = mysqli_query($conn, $sql);
     $result = $result->fetch_assoc();
-    return $result;
+    return $result['count'];
+  }
+
+  public static function checkEmailExist($email)
+  {
+    $conn = DB::getConnection();
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
+    return $num;
   }
 
   public static function registerUser($payload)
   {
-    $password = password_hash($payload['password'], PASSWORD_DEFAULT);
+    $password = password_hash($payload['password'], PASSWORD_BCRYPT);
     $conn = DB::getConnection();
     $sql = "INSERT INTO users (name, email, password, isAdmin) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);

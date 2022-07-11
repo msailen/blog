@@ -7,6 +7,7 @@ $(document).on("submit", "#register-form", function (e) {
     name: $("input[name='name']", _form).val(),
     email: $("input[type='email']", _form).val(),
     password: $("input[name='password']", _form).val(),
+    confirmPassword: $("input[name='confirmPassword']", _form).val(),
   };
 
   if (payload.password.length < 6) {
