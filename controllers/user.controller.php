@@ -39,17 +39,20 @@ class User
   public static function loginUser($email, $password)
   {
     $conn = DB::getConnection();
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt = $conn->prepare("SELECT id, name, isAdmin FROM users WHERE email = ? and password = ?");
-    $stmt->bind_param('ss', $email, $password);
-    $stmt->execute();
-    $stmt->bind_result($userId, $name, $isAdmin);
-    while ($stmt->fetch()) {
 
-      $result['userId'] = $userId;
-      $result['name'] = $name;
-      $result['isAdmin'] = $isAdmin;
-      return json_encode($result, JSON_PRETTY_PRINT);
+    $stmt = $conn->prepare("SELECT id, name, isAdmin, password FROM users WHERE email =?");
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $stmt->bind_result($userId, $name, $isAdmin, $hash);
+    while ($stmt->fetch()) {
+      if (password_verify($password, $hash)) {
+        $response['userId'] = $userId;
+        $response['name'] = $name;
+        $response['isAdmin'] = $isAdmin;
+        return $response;
+      } else {
+        return false;
+      }
     }
   }
 }
