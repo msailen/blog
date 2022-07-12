@@ -20,7 +20,7 @@ class Blog
   public static function listBlogs()
   {
     $conn = DB::getConnection();
-    $sql = "SELECT * FROM blogs";
+    $sql = "SELECT * FROM blogs ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -30,5 +30,22 @@ class Blog
     $stmt->close();
     $conn->close();
     return $blogs;
+  }
+
+  public static function getById($id)
+  {
+    try {
+      $conn = DB::getConnection();
+      $sql = "SELECT * FROM blogs WHERE id=?";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("s", $id);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $blog = $result->fetch_assoc();
+      $stmt->close();
+      return $blog;
+    } catch (\Throwable $err) {
+      return false;
+    }
   }
 }
