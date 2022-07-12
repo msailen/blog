@@ -41,9 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $payload['isAdmin'] = 0;
         if ($userCount === 0) $payload['isAdmin'] = 1;
         $userId = User::registerUser($payload);
-        $_SESSION['userId'] = $userId;
-        $_SESSION['name'] = $_POST['name'];
-        header("Location: index.php");
+        header("Location: login.php?status=success&msg=Registered Successfully");
       } catch (Exception $err) {
         $error = "Failed To Register";
       }

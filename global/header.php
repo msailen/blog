@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-12 col-md-6 text-end">
       <?php
-      if (isset($_SESSION['isAdmin'])) {
+      if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
       ?>
         <a class="btn navbar-item" href="/messages.php">Messages</a>
       <?php

@@ -23,7 +23,7 @@ $blogs = Blog::listBlogs();
       <h6 class="m-3">Recent Blogs</h6>
     </div>
     <?php
-    if (isset($_SESSION['isAdmin'])) {
+    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
     ?>
       <div class="col-sm-12 col-md-6 text-end">
         <a type="button" class="btn btn-success btn-sm" href="/add-blog.php">Create</a>

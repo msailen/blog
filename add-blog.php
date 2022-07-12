@@ -4,7 +4,7 @@ $error = false;
 $formValue['title'] = '';
 $formValue['content'] = '';
 //redirects to homepage if user session is active
-if (!isset($_SESSION['isAdmin'])) {
+if (!$_SESSION['isAdmin']) {
   header("location: 404.php");
 }
 

@@ -1,6 +1,9 @@
 <?php
 session_start();
 $error = false;
+if (!$_SESSION['isAdmin']) {
+  header("location: 404.php");
+}
 require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/feedback.controller.php";
 $feedbacks = Feedback::listFeedbacks();
 if (!$feedbacks) {

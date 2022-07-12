@@ -3,6 +3,9 @@ $error = "";
 session_start();
 $formValue['email'] = '';
 $formValue['password'] = '';
+if (isset($_GET['msg'])) {
+  $message = $_GET['msg'];
+}
 if (isset($_SESSION['userId'])) {
   header("location: index.php");
 }
@@ -46,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="card-body">
           <h5 class="card-title text-center">Login</h5>
           <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <span class="text-success"><?php if (isset($message)) echo $message; ?></span>
             <span class="text-danger"><?php if (isset($error)) echo $error; ?></span>
             <div class="form-group mb-2">
               <label for="email">Email Address</label>
