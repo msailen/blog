@@ -26,7 +26,7 @@ try {
   $allowedExts = array("jpeg", "jpg", "png");
 
   // Allowed mime types.
-  $allowedMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/x-png", "image/png", "image/svg+xml");
+  $allowedMimeTypes = array("image/jpeg", "image/pjpeg", "image/x-png", "image/png");
 
   // Validate image.
   if (!in_array(strtolower($mimeType), $allowedMimeTypes) || !in_array(strtolower($extension), $allowedExts)) {
@@ -35,7 +35,7 @@ try {
 
   // Generate new random name.
   $name = strtotime("now") . "." . $extension;
-  $fullNamePath = dirname(__DIR__) . $fileRoute . $name;
+  $fullNamePath = $_SERVER['DOCUMENT_ROOT'] . $fileRoute . $name;
 
   // Check server protocol and load resources accordingly.
   if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") {
