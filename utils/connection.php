@@ -3,10 +3,10 @@
 class DB
 {
   protected static $conn;
-  protected static $servername = "localhost";
-  protected static $username = "blog";
-  protected static $password = 'T$mp1234';
-  protected static $db = "blog-project";
+  protected static $servername = "sql6.freemysqlhosting.net";
+  protected static $username = "sql6505855";
+  protected static $password = 'ibqALLsx4N';
+  protected static $db = "sql6505855";
 
   private function __construct()
   {
