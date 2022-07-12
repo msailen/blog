@@ -2,6 +2,7 @@
 $comment = "";
 $error = false;
 $blogId = $_GET['id'];
+$comments = "";
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/blog.controller.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/comment.controller.php";

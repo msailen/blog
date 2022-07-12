@@ -27,6 +27,7 @@ class Blog
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
+    $blogs = array();
     while ($row = $result->fetch_assoc()) {
       $blogs[] = $row;
     }

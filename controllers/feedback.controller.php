@@ -27,6 +27,7 @@ class Feedback
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
+    $feedbacks = array();
     while ($row = $result->fetch_assoc()) {
       $feedbacks[] = $row;
     }

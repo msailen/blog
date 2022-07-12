@@ -37,19 +37,21 @@ $blogs = Blog::listBlogs();
     }
     ?>
     <?php
-    foreach ($blogs as $blog) {
+    if ($blogs) {
+      foreach ($blogs as $blog) {
     ?>
-      <div class="col-sm-12 col-md-4 col-lg-3">
-        <div class="card">
-          <a href="<?php echo "/blog-detail.php" . "?id=" . $blog['id'] ?>" class="a-link">
-            <img class="card-img-top" src="<?php echo $blog['preview'] ?>" onerror='this.onerror=null;this.src="images/default.png"' alt="Preview">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo $blog['title']; ?></h5>
-            </div>
-          </a>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <div class="card">
+            <a href="<?php echo "/blog-detail.php" . "?id=" . $blog['id'] ?>" class="a-link">
+              <img class="card-img-top" src="<?php echo $blog['preview'] ?>" onerror='this.onerror=null;this.src="images/default.png"' alt="Preview">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $blog['title']; ?></h5>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
     <?php
+      }
     }
     ?>
   </div>
