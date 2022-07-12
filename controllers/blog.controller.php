@@ -7,14 +7,17 @@ class Blog
 
   public static function addBlog($payload)
   {
-    $conn = DB::getConnection();
-    $sql = "INSERT INTO blogs (title, content) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $payload['title'], $payload['content']);
-    $stmt->execute();
-    $stmt->close();
-    $conn->close();
-    return true;
+    try {
+      $conn = DB::getConnection();
+      $sql = "INSERT INTO blogs (title, content, preview) VALUES (?, ?, ?)";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("sss", $payload['title'], $payload['content'], $payload['preview']);
+      $stmt->execute();
+      $stmt->close();
+      $conn->close();
+    } catch (\Throwable $th) {
+      error_log($th->getMessage());
+    }
   }
 
   public static function listBlogs()

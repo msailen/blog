@@ -3,6 +3,8 @@ session_start();
 $error = false;
 $formValue['title'] = '';
 $formValue['content'] = '';
+$formValue['preview'] = '';
+
 //redirects to homepage if user session is active
 if (!$_SESSION['isAdmin']) {
   header("location: 404.php");
@@ -12,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $formValue['title'] = $_POST['title'];
   $formValue['content'] =  $_POST['content'];
+  $formValue['preview'] =  $_POST['preview'];
 
   require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/blog.controller.php";
 
@@ -50,6 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="form-group mb-2">
               <label for="title">Title</label>
               <input type="text" class="form-control" name="title" placeholder="Enter Titile" required value="<?php echo $formValue['title']; ?>">
+            </div>
+            <div class="form-group mb-2 d-none">
+              <input type="text" class="form-control" id="preview" name="preview" value="<?php echo $formValue['preview']; ?>">
             </div>
             <div class="form-group">
               <label for="content">Content</label>
@@ -94,6 +100,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       },
       imageUploadURL: '/upload.php',
       imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+      events: {
+        'image.uploaded': function(response) {
+          const res = JSON.parse(response);
+          var previewInput = document.getElementById("preview");
+          if (!previewInput?.value) {
+            document.getElementById("preview").value = res.link;
+          }
+        }
+      }
     })
   </script>
 
